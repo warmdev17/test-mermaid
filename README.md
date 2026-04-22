@@ -1,23 +1,12 @@
 # test-mermaid
 ```mermaid
-erDiagram
-    USER {
-        int id PK
-        string name
-        string email
-    }
+flowchart LR
+    USER[User]
+    NAME((name))
+    EMAIL((email))
 
-    PROBLEM {
-        int id PK
-        string title
-    }
+    SUBMISSION[Submission]
 
-    SUBMISSION {
-        int id PK
-        int userId FK
-        int problemId FK
-        string status
-    }
-
-    USER ||--o{ SUBMISSION : submits
-    PROBLEM ||--o{ SUBMISSION : has
+    USER -->|has| NAME
+    USER -->|has| EMAIL
+    USER -->|submits| SUBMISSION
